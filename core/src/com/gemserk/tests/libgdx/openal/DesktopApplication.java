@@ -24,14 +24,17 @@ public class DesktopApplication {
 
 		new LwjglApplication(new Game() {
 
+			private Sound sound;
+
 			@Override
 			public void create() {
-				
+				sound = Gdx.audio.newSound(Gdx.files.internal("test.ogg"));
 			}
 			
 			@Override
 			public void render() {
-				
+				if (Gdx.input.isKeyPressed(Keys.ENTER))
+					sound.play(1f);
 			}
 			
 		}, config);
